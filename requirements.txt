@@ -1,0 +1,5 @@
+scikit-learn
+xgboost
+py-ubjson
+treelite
+treelite-runtime
