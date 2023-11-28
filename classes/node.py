@@ -1,8 +1,7 @@
 from dataclasses import dataclass
 from enum import IntEnum, unique
-from typing import Dict, List
+from typing import List
 
-ParamT = Dict[str, str]
 
 @unique
 class SplitType(IntEnum):
