@@ -98,3 +98,19 @@ class Tree:
 
         string = "\n".join(map(lambda x: "  " + str(x), nodes))
         return string
+
+    def __eq__(self, other):
+        if not isinstance(other, Tree):
+            return False
+        
+        # Compare the number of nodes first
+        if len(self.nodes) != len(other.nodes):
+            return False
+        
+        # Compare nodes one by one
+        # TODO: Make resistant to shuffling
+        for node1, node2 in zip(self.nodes, other.nodes):
+            if node1 != node2:
+                return False
+
+        return True

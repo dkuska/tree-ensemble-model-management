@@ -128,3 +128,27 @@ class Model:
         for i, tree in enumerate(self.trees):
             print("\ntree_id:", i)
             print(tree)
+            
+    def __eq__(self, other):
+        if not isinstance(other, Model):
+            return False
+
+        if self.num_trees != self.num_trees:
+            return False
+
+        # Compare trees
+        trees_found = [False for _ in range(self.num_trees)]
+        for idx_self, tree in enumerate(self.trees):
+            self_found = False
+            
+            for idx_other, other_tree in enumerate(other.trees):
+                if tree == other_tree:
+                    print(f"Found match between Tree {idx_self} and {idx_other}")
+                    self_found = True
+
+            trees_found[idx_self] = self_found
+            
+        return all(trees_found)
+            
+            
+        return True
