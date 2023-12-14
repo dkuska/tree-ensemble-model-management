@@ -60,10 +60,6 @@ def node_is_leaf(node):
         return False
 
 
-def node_is_inner_node(node):
-    return not node_is_leaf(node)
-
-
 def get_num_duplicate_nodes(tree1, tree2, exact: bool = True):
     num_duplicate_leaves = 0
     num_duplicate_inner = 0
@@ -137,11 +133,23 @@ def compare_models(models: dict, sequentially: bool = False, exact: bool = True)
 # Node Duplicates
 
 
-def get_list_of_nodes(model):
+def get_node_list(models, exact: bool = True):
+    nodes = []
+
+    for i, (model_name, model) in enumerate(models.items()):
+        node_list = get_list_of_nodes(model, exact=exact)
+        nodes.extend(node_list)
+
+    return nodes
+
+
+def get_list_of_nodes(model, exact: bool = False):
     l = []
     for tree in model["trees"]:
         for node in tree["nodes"]:
-            l.append(node)
+            reduced_node = remove_unneeded_node_keys(node, exact=exact)
+
+            l.append(reduced_node)
     return l
 
 
@@ -149,6 +157,6 @@ def get_counts_of_unique_nodes(node_list: list):
     # Convert dictionaries to tuples and count occurrences using Counter
     tuple_counts = Counter(tuple(sorted(d.items())) for d in node_list)
 
-    duplicates = {key: count for key, count in tuple_counts.items()}
+    duplicates = {key: count for key, count in tuple_counts.items() if count > 1}
 
     return duplicates
