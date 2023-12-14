@@ -137,20 +137,12 @@ def get_node_list(models, exact: bool = True):
     nodes = []
 
     for i, (model_name, model) in enumerate(models.items()):
-        node_list = get_list_of_nodes(model, exact=exact)
-        nodes.extend(node_list)
+        for tree in model["trees"]:
+            for node in tree["nodes"]:
+                reduced_node = remove_unneeded_node_keys(node, exact=exact)
+                nodes.append(reduced_node)
 
     return nodes
-
-
-def get_list_of_nodes(model, exact: bool = False):
-    l = []
-    for tree in model["trees"]:
-        for node in tree["nodes"]:
-            reduced_node = remove_unneeded_node_keys(node, exact=exact)
-
-            l.append(reduced_node)
-    return l
 
 
 def get_counts_of_unique_nodes(node_list: list):
