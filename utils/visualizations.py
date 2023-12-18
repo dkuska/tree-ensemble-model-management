@@ -82,7 +82,12 @@ def plot_bars_unique_nodes(node_list, unique_node_counts):
     plt.figure(figsize=(8, 6))
     ax = plt.gca()
 
-    plt.plot(range(len(duplicate_values)), sorted(duplicate_values))
+    plt.bar(
+        range(len(duplicate_values)),
+        sorted(duplicate_values),
+        width=1.5,
+        align="edge",
+    )
 
     # Create a box to display statistics
     stats_box = f"Number of Nodes: {total_num_nodes}\n\
