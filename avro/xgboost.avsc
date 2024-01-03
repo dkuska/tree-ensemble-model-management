@@ -1,0 +1,290 @@
+{
+  "type": "record",
+  "name": "LearnerData",
+  "fields": [
+    {
+      "name": "learner",
+      "type": {
+        "type": "record",
+        "name": "LearnerInfo",
+        "fields": [
+          {
+            "name": "attributes",
+            "type": {
+              "type": "map",
+              "values": "string"
+            }
+          },
+          {
+            "name": "feature_names",
+            "type": {
+              "type": "array",
+              "items": "string"
+            }
+          },
+          {
+            "name": "feature_types",
+            "type": {
+              "type": "array",
+              "items": "string"
+            }
+          },
+          {
+            "name": "gradient_booster",
+            "type": {
+              "type": "record",
+              "name": "GradientBoosterInfo",
+              "fields": [
+                {
+                  "name": "model",
+                  "type": {
+                    "type": "record",
+                    "name": "ModelInfo",
+                    "fields": [
+                      {
+                        "name": "gbtree_model_param",
+                        "type": {
+                          "type": "record",
+                          "name": "GBTreeModelParam",
+                          "fields": [
+                            {
+                              "name": "num_parallel_tree",
+                              "type": "string"
+                            },
+                            {
+                              "name": "num_trees",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "iteration_indptr",
+                        "type": {
+                          "type": "array",
+                          "items": "int"
+                        }
+                      },
+                      {
+                        "name": "tree_info",
+                        "type": {
+                          "type": "array",
+                          "items": "int"
+                        }
+                      },
+                      {
+                        "name": "trees",
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "record",
+                            "name": "TreeInfo",
+                            "fields": [
+                              {
+                                "name": "base_weights",
+                                "type": {
+                                  "type": "array",
+                                  "items": "double"
+                                }
+                              },
+                              {
+                                "name": "categories",
+                                "type": {
+                                  "type": "array",
+                                  "items": "string"
+                                }
+                              },
+                              {
+                                "name": "categories_nodes",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "categories_segments",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "categories_sizes",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "default_left",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "id",
+                                "type": "int"
+                              },
+                              {
+                                "name": "left_children",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "loss_changes",
+                                "type": {
+                                  "type": "array",
+                                  "items": "double"
+                                }
+                              },
+                              {
+                                "name": "parents",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "right_children",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "split_conditions",
+                                "type": {
+                                  "type": "array",
+                                  "items": "double"
+                                }
+                              },
+                              {
+                                "name": "split_indices",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "split_type",
+                                "type": {
+                                  "type": "array",
+                                  "items": "int"
+                                }
+                              },
+                              {
+                                "name": "sum_hessian",
+                                "type": {
+                                  "type": "array",
+                                  "items": "double"
+                                }
+                              },
+                              {
+                                "name": "tree_param",
+                                "type": {
+                                  "type": "record",
+                                  "name": "TreeParam",
+                                  "fields": [
+                                    {
+                                      "name": "num_deleted",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "name": "num_feature",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "name": "num_nodes",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "name": "size_leaf_vector",
+                                      "type": "string"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "learner_model_param",
+            "type": {
+              "type": "record",
+              "name": "LearnerModelParam",
+              "fields": [
+                {
+                  "name": "base_score",
+                  "type": "string"
+                },
+                {
+                  "name": "boost_from_average",
+                  "type": "string"
+                },
+                {
+                  "name": "num_class",
+                  "type": "string"
+                },
+                {
+                  "name": "num_feature",
+                  "type": "string"
+                },
+                {
+                  "name": "num_target",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "objective",
+            "type": {
+              "type": "record",
+              "name": "ObjectiveInfo",
+              "fields": [
+                {
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "name": "reg_loss_param",
+                  "type": {
+                    "type": "record",
+                    "name": "RegLossParam",
+                    "fields": [
+                      {
+                        "name": "scale_pos_weight",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "version",
+      "type": {
+        "type": "array",
+        "items": "int"
+      }
+    }
+  ]
+}
