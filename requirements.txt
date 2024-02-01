@@ -1,6 +1,8 @@
+avro
+msgpack-python
 scikit-learn
-xgboost
 py-ubjson
 pandas
 treelite
 treelite-runtime
+xgboost
