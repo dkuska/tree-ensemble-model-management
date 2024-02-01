@@ -1,5 +1,7 @@
 avro
+matplotlib
 msgpack-python
+numpy
 scikit-learn
 py-ubjson
 pandas
