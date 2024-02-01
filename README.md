@@ -7,7 +7,6 @@
   - Storage Consumption
 - This is a university project, it is by no means a real project
 
-
 ## How to use this repo
 
 1. Download data from: <https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data?select=yellow_tripdata_2016-01.csv>. The scripts assume that this CSV is stored in `project_root/data/yellow_tripdata_2016-01.csv`
